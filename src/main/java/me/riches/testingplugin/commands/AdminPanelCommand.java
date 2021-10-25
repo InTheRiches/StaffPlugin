@@ -72,7 +72,7 @@ public class AdminPanelCommand implements CommandExecutor {
         ArrayList<String> gamemode_lore = new ArrayList<>();
         gamemode_lore.add(ChatColor.DARK_BLUE + "Creative, Survival and Spectator");
         gamemode_meta.setLore(gamemode_lore);
-        sword.setItemMeta(gamemode_meta);
+        gamemode.setItemMeta(gamemode_meta);
 
         ItemStack[] menu_items = {
                 blank, blank, blank, blank, blank, blank, blank, blank, blank,
