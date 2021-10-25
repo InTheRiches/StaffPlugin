@@ -47,7 +47,7 @@ public class GamemodeGUI {
         survival.setItemMeta(survival_meta);
 
         ItemMeta spectator_meta = spectator.getItemMeta();
-        spectator_meta.setDisplayName(ChatColor.GREEN + "Spectatorl Mode");
+        spectator_meta.setDisplayName(ChatColor.GREEN + "Spectator Mode");
         ArrayList<String> spectator_lore = new ArrayList<>();
         spectator_lore.add(ChatColor.LIGHT_PURPLE + "O .,;,,,;,. O");
         spectator_meta.setLore(spectator_lore);
