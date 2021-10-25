@@ -24,7 +24,7 @@ public class BanGUI {
         ItemStack perm = new ItemStack(Material.BARRIER);
         ItemStack unban = new ItemStack(Material.TOTEM_OF_UNDYING);
         ItemStack back = new ItemStack(Material.ARROW);
-        ItemStack blank = new ItemStack(Material.AIR);
+        ItemStack blank = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
         ItemStack blank2 = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE);
         ItemStack search = new ItemStack(Material.MAP);
 

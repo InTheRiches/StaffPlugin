@@ -18,7 +18,7 @@ public class GamemodeGUI {
         gui = Bukkit.createInventory(p, 45, ChatColor.BLACK + "Gamemode Panel");
 
         //Create Items
-        ItemStack blank = new ItemStack(Material.AIR);
+        ItemStack blank = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
         ItemStack back = new ItemStack(Material.ARROW);
         ItemStack creative = new ItemStack(Material.BEACON);
         ItemStack survival = new ItemStack(Material.IRON_PICKAXE);

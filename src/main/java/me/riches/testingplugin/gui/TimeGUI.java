@@ -18,7 +18,7 @@ public class TimeGUI {
         gui = Bukkit.createInventory(p, 45, ChatColor.BLACK + "Time Set Panel");
 
         //Create Items
-        ItemStack blank = new ItemStack(Material.AIR);
+        ItemStack blank = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
         ItemStack back = new ItemStack(Material.ARROW);
         ItemStack morning = new ItemStack(Material.YELLOW_GLAZED_TERRACOTTA);
         ItemStack midday = new ItemStack(Material.BLUE_GLAZED_TERRACOTTA);

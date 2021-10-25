@@ -1,5 +1,11 @@
 package me.riches.testingplugin;
 
+import com.comphenix.protocol.PacketType;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
+import com.comphenix.protocol.events.PacketAdapter;
+import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.events.PacketEvent;
 import me.riches.testingplugin.commands.AdminPanelCommand;
 import me.riches.testingplugin.commands.SetSpawnCommand;
 import me.riches.testingplugin.commands.SmiteCommand;
@@ -18,6 +24,17 @@ public final class TestingPlugin extends JavaPlugin {
     public void onEnable() {
 
         plugin = this;
+
+//        ProtocolManager manager = ProtocolLibrary.getProtocolManager();
+//
+//        manager.addPacketListener(new PacketAdapter(this, PacketType.Play.Server.OPEN_SIGN_EDITOR) {
+//            @Override
+//            public void onPacketSending(PacketEvent event) {
+//                PacketContainer packet = event.getPacket();
+//                Location test = packet.get
+//                super.onPacketSending(event);
+//            }
+//        });
 
         CustomConfigFile.setup(getServer());
 
