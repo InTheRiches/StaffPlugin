@@ -26,6 +26,7 @@ public class BanGUI {
         ItemStack back = new ItemStack(Material.ARROW);
         ItemStack blank = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
         ItemStack blank2 = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE);
+        ItemStack blank3 = new ItemStack(Material.AIR);
         ItemStack search = new ItemStack(Material.MAP);
 
         // This is where the items are created
@@ -68,7 +69,7 @@ public class BanGUI {
         ItemStack[] menu_items = {
                 back, blank, blank, temp, unban, perm, blank, blank, blank,
                 blank2, blank2, blank2, blank2, blank2, blank2, blank2, blank2, blank2,
-                blank, blank, blank, blank, blank, blank, blank, blank, search
+                blank3, blank3, blank3, blank3, blank3, blank3, blank3, blank3, search
         };
         gui.setContents(menu_items);
 
