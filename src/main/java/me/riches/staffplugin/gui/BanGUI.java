@@ -1,10 +1,13 @@
 package me.riches.staffplugin.gui;
 
+import me.riches.staffplugin.events.ClickEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -15,14 +18,15 @@ public class BanGUI {
     public static Inventory gui;
     public static Inventory gui2;
 
+    public static ItemStack temp = new ItemStack(Material.CLOCK);
+    public static ItemStack perm = new ItemStack(Material.BARRIER);
+    public static ItemStack unban = new ItemStack(Material.TOTEM_OF_UNDYING);
+
     public static Inventory createGUI(Player p) {
         // Create the GUI
         gui = Bukkit.createInventory(p, 45, ChatColor.BLACK + "Ban Panel");
 
         // Create the items
-        ItemStack temp = new ItemStack(Material.CLOCK);
-        ItemStack perm = new ItemStack(Material.BARRIER);
-        ItemStack unban = new ItemStack(Material.TOTEM_OF_UNDYING);
         ItemStack back = new ItemStack(Material.ARROW);
         ItemStack blank = new ItemStack(Material.AIR);
         ItemStack blank2 = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE);
@@ -40,14 +44,18 @@ public class BanGUI {
 
         ItemMeta temp_meta = temp.getItemMeta();
         temp_meta.setDisplayName(ChatColor.RED + "Temp Ban");
+        temp_meta.addEnchant(Enchantment.LUCK, 1, true);
+        temp_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         ArrayList<String> temp_lore = new ArrayList<>();
         temp_lore.add(ChatColor.GOLD + "Temp ban a user.");
         temp_meta.setLore(temp_lore);
         temp.setItemMeta(temp_meta);
+        ClickEvent.banGuiButtonClick = temp;
 
         ItemMeta perm_meta = perm.getItemMeta();
         perm_meta.setDisplayName(ChatColor.RED + "Perm Ban");
         ArrayList<String> perm_lore = new ArrayList<>();
+        perm_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         perm_lore.add(ChatColor.DARK_RED + "Perm Ban a user.");
         perm_meta.setLore(perm_lore);
         perm.setItemMeta(perm_meta);
@@ -55,6 +63,7 @@ public class BanGUI {
         ItemMeta unban_meta = unban.getItemMeta();
         unban_meta.setDisplayName(ChatColor.RED + "Unban");
         ArrayList<String> unban_lore = new ArrayList<>();
+        unban_meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         unban_lore.add(ChatColor.GREEN + "Unban a user.");
         unban_meta.setLore(unban_lore);
         unban.setItemMeta(unban_meta);

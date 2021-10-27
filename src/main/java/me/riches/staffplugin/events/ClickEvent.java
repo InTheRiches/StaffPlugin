@@ -7,15 +7,19 @@ import me.riches.staffplugin.gui.GamemodeGUI;
 import me.riches.staffplugin.gui.TimeGUI;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Objects;
 
 public class ClickEvent implements Listener {
+
+    public static ItemStack banGuiButtonClick = null;
 
     @EventHandler
     public void clickEvent(InventoryClickEvent e) {
@@ -63,8 +67,39 @@ public class ClickEvent implements Listener {
 
         else if (e.getClickedInventory() == BanGUI.gui) {
             switch(Objects.requireNonNull(e.getCurrentItem()).getType()) {
+
                 case ARROW:
                     player.openInventory(AdminPanelCommand.gui);
+                    break;
+                case BARRIER:
+                case CLOCK:
+                case TOTEM_OF_UNDYING:
+                    ItemStack item = e.getCurrentItem();
+                    ItemMeta meta = item.getItemMeta();
+                    ItemMeta otherItemMeta;
+                    Material temp = banGuiButtonClick.getType();
+                    System.out.println(temp);
+                    otherItemMeta = banGuiButtonClick.getItemMeta();
+                    otherItemMeta.removeEnchant(Enchantment.LUCK);
+
+                    meta.addEnchant(Enchantment.LUCK, 1, true);
+                    item.setItemMeta(meta);
+
+                    ItemStack[] check = e.getClickedInventory().getContents();
+                    for (int i = 0;i < check.length;i++) {
+                        if (check[i] != null) {
+                            System.out.println(check[i].getType());
+                            if (check[i].getType() == temp) {
+                                banGuiButtonClick.setItemMeta(otherItemMeta);
+                                check[i] = banGuiButtonClick;
+                            }
+                            if (check[i].getItemMeta() == meta) {
+                                check[i] = item;
+                            }
+                        }
+                    }
+                    banGuiButtonClick = item;
+                    e.setCancelled(true);
                     break;
             }
 

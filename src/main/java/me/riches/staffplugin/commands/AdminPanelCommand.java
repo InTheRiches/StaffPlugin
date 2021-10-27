@@ -23,7 +23,7 @@ public class AdminPanelCommand implements CommandExecutor {
         ItemStack suicide = new ItemStack(Material.TNT);
         ItemStack feed = new ItemStack(Material.TOTEM_OF_UNDYING);
         ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
-        ItemStack blank = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
+        ItemStack blank = new ItemStack(Material.AIR);
         ItemStack ban = new ItemStack(Material.BARRIER);
         ItemStack time = new ItemStack(Material.CLOCK);
         ItemStack gamemode = new ItemStack(Material.BEACON);

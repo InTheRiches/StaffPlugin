@@ -9,12 +9,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class StaffPlugin extends JavaPlugin {
 
-    private static JavaPlugin plugin;
-
     @Override
     public void onEnable() {
 
-        plugin = this;
+        StaffPlugin plugin = this;
 
         CustomConfigFile.setup(getServer());
 
@@ -23,8 +21,6 @@ public final class StaffPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerEventsListener(getServer()), this);
         getServer().getPluginManager().registerEvents(new ClickEvent(), this);
 
-        getCommand("setspawn").setExecutor(new SetSpawnCommand());
-        getCommand("spawn").setExecutor(new SpawnCommand(getServer()));
         getCommand("admin").setExecutor(new AdminPanelCommand());
         getCommand("smite").setExecutor(new SmiteCommand(getServer()));
         getCommand("vanish").setExecutor(new VanishCommand(this));
@@ -33,8 +29,5 @@ public final class StaffPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-    }
-    public static JavaPlugin getThePlugin() {
-        return plugin;
     }
 }
