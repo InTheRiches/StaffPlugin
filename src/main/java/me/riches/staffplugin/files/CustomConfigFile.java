@@ -1,4 +1,4 @@
-package me.riches.testingplugin.files;
+package me.riches.staffplugin.files;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
@@ -14,7 +14,7 @@ public class CustomConfigFile {
     private static FileConfiguration customFile;
 
     public static void setup(Server server) {
-        file = new File(Bukkit.getServer().getPluginManager().getPlugin("TestingPlugin").getDataFolder(), "config.yml");
+        file = new File(Bukkit.getServer().getPluginManager().getPlugin("StaffPlugin").getDataFolder(), "config.yml");
 
         if (!file.exists()) {
             try{

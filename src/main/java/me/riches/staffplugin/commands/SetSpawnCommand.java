@@ -1,7 +1,7 @@
-package me.riches.testingplugin.commands;
+package me.riches.staffplugin.commands;
 
-import me.riches.testingplugin.Logging;
-import me.riches.testingplugin.files.CustomConfigFile;
+import me.riches.staffplugin.Logging;
+import me.riches.staffplugin.files.CustomConfigFile;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.model.user.User;
 import org.bukkit.Bukkit;
@@ -10,8 +10,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import net.luckperms.api.model.PermissionHolder;
-import net.luckperms.api.model.user.UserManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 
 public class SetSpawnCommand implements CommandExecutor {

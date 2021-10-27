@@ -1,12 +1,10 @@
-package me.riches.testingplugin.events;
+package me.riches.staffplugin.events;
 
-import me.riches.testingplugin.Logging;
-import me.riches.testingplugin.commands.AdminPanelCommand;
-import me.riches.testingplugin.gui.BanGUI;
-// import me.riches.testingplugin.gui.GamemodeGUI;
-import me.riches.testingplugin.gui.GamemodeGUI;
-import me.riches.testingplugin.gui.TimeGUI;
-import org.bukkit.ChatColor;
+import me.riches.staffplugin.Logging;
+import me.riches.staffplugin.commands.AdminPanelCommand;
+import me.riches.staffplugin.gui.BanGUI;
+import me.riches.staffplugin.gui.GamemodeGUI;
+import me.riches.staffplugin.gui.TimeGUI;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

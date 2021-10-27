@@ -1,11 +1,9 @@
-package me.riches.testingplugin.listeners;
+package me.riches.staffplugin.listeners;
 
-import me.riches.testingplugin.files.CustomConfigFile;
+import me.riches.staffplugin.files.CustomConfigFile;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Server;
-import org.bukkit.World;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

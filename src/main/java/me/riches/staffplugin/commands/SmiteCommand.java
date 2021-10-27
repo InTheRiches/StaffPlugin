@@ -1,4 +1,4 @@
-package me.riches.testingplugin.commands;
+package me.riches.staffplugin.commands;
 
 import org.bukkit.Location;
 import org.bukkit.Server;

@@ -1,4 +1,4 @@
-package me.riches.testingplugin.gui;
+package me.riches.staffplugin.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

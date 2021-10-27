@@ -1,22 +1,16 @@
-name: TestingPlugin
+name: StaffPlugin
 version: '${version}'
-main: me.riches.testingplugin.TestingPlugin
+main: me.riches.staffplugin.StaffPlugin
 api-version: 1.17
 authors: [ riches_exe, Zepsun ]
 description: Testing Plugin For Riches
 commands:
-  spawn:
-    description: Teleport to spawn
-    usage: /spawn
-
   admin:
     description: Admin panel for admins
     usage: /admin
-
-  setspawn:
-    description: Set the spawn for the server.
-    usage: /setspawn
-
   smite:
     description: Smite a user
     usage: /smite [user]
+  vanish:
+    description: Vanish from all players
+    usage: /vanish

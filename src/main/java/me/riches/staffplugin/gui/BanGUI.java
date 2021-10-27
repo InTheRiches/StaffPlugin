@@ -1,4 +1,4 @@
-package me.riches.testingplugin.gui;
+package me.riches.staffplugin.gui;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -24,9 +24,9 @@ public class BanGUI {
         ItemStack perm = new ItemStack(Material.BARRIER);
         ItemStack unban = new ItemStack(Material.TOTEM_OF_UNDYING);
         ItemStack back = new ItemStack(Material.ARROW);
-        ItemStack blank = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
+        ItemStack blank = new ItemStack(Material.AIR);
         ItemStack blank2 = new ItemStack(Material.PURPLE_STAINED_GLASS_PANE);
-        ItemStack blank3 = new ItemStack(Material.AIR);
+        ItemStack blank3 = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE);
         ItemStack search = new ItemStack(Material.MAP);
 
         // This is where the items are created
