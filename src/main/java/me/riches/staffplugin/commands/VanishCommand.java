@@ -17,6 +17,8 @@ public class VanishCommand implements CommandExecutor {
 
     StaffPlugin plugin;
 
+    ArrayList<Player> vanished = new ArrayList<>();
+
     public VanishCommand(StaffPlugin plugin) {
         this.plugin = plugin;
     }
@@ -24,8 +26,6 @@ public class VanishCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         RegisteredServiceProvider<LuckPerms> provider = Bukkit.getServicesManager().getRegistration(LuckPerms.class);
-
-        ArrayList<Player> vanished = new ArrayList<>();
 
         assert provider != null;
         LuckPerms lp = provider.getProvider();
@@ -36,20 +36,24 @@ public class VanishCommand implements CommandExecutor {
             User user = lp.getUserManager().getUser(p.getUniqueId());
             assert user != null;
             if (user.getPrimaryGroup().equals("admin")) {
-                if (vanished.contains(p)) {
-                    for (Player people : Bukkit.getOnlinePlayers())
-                        people.showPlayer(plugin, p);
-                    vanished.remove(p);
-                    Logging.log(p, "You have un-vanished.");
-                }
-                else{
-                    for (Player people : Bukkit.getOnlinePlayers())
-                        people.hidePlayer(plugin, p);
-                    vanished.add(p);
-                    Logging.log(p, "You have vanished.");
-                }
+                toggleVanish(p);
             }
         }
         return true;
+    }
+
+    public void toggleVanish(Player p) {
+        if (vanished.contains(p)) {
+            for (Player people : Bukkit.getOnlinePlayers())
+                people.showPlayer(plugin, p);
+            vanished.remove(p);
+            Logging.log(p, "You have un-vanished.");
+        }
+        else{
+            for (Player people : Bukkit.getOnlinePlayers())
+                people.hidePlayer(plugin, p);
+            vanished.add(p);
+            Logging.log(p, "You have vanished.");
+        }
     }
 }

@@ -1,10 +1,14 @@
 package me.riches.staffplugin.events;
 
 import me.riches.staffplugin.Logging;
+import me.riches.staffplugin.StaffPlugin;
 import me.riches.staffplugin.commands.AdminPanelCommand;
+import me.riches.staffplugin.commands.StaffCommand;
+import me.riches.staffplugin.commands.VanishCommand;
 import me.riches.staffplugin.gui.BanGUI;
 import me.riches.staffplugin.gui.GamemodeGUI;
 import me.riches.staffplugin.gui.TimeGUI;
+import me.riches.staffplugin.items.ItemManager;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -12,6 +16,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -20,6 +26,12 @@ import java.util.Objects;
 public class ClickEvent implements Listener {
 
     public static ItemStack banGuiButtonClick = null;
+
+    StaffPlugin plugin;
+
+    public ClickEvent(StaffPlugin plugin) {
+        this.plugin = plugin;
+    }
 
     @EventHandler
     public void clickEvent(InventoryClickEvent e) {
@@ -74,12 +86,13 @@ public class ClickEvent implements Listener {
                 case BARRIER:
                 case CLOCK:
                 case TOTEM_OF_UNDYING:
+                    ItemStack previous = banGuiButtonClick.clone();
                     ItemStack item = e.getCurrentItem();
                     ItemMeta meta = item.getItemMeta();
                     ItemMeta otherItemMeta;
-                    Material temp = banGuiButtonClick.getType();
+                    Material temp = previous.getType();
                     System.out.println(temp);
-                    otherItemMeta = banGuiButtonClick.getItemMeta();
+                    otherItemMeta = previous.getItemMeta();
                     otherItemMeta.removeEnchant(Enchantment.LUCK);
 
                     meta.addEnchant(Enchantment.LUCK, 1, true);
@@ -90,8 +103,8 @@ public class ClickEvent implements Listener {
                         if (check[i] != null) {
                             System.out.println(check[i].getType());
                             if (check[i].getType() == temp) {
-                                banGuiButtonClick.setItemMeta(otherItemMeta);
-                                check[i] = banGuiButtonClick;
+                                previous.setItemMeta(otherItemMeta);
+                                check[i].setItemMeta(otherItemMeta);
                             }
                             if (check[i].getItemMeta() == meta) {
                                 check[i] = item;
@@ -154,6 +167,18 @@ public class ClickEvent implements Listener {
                     break;
             }
             e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void rightClickEvent(PlayerInteractEvent e) {
+        Player player = e.getPlayer();
+        if (Objects.equals(e.getItem(), AdminPanelCommand.createItem())) {
+            player.openInventory(AdminPanelCommand.createGUI(player));
+        }
+
+        if (Objects.equals(e.getItem(), ItemManager.vanish)) {
+            new VanishCommand(plugin).toggleVanish(player);
         }
     }
 }

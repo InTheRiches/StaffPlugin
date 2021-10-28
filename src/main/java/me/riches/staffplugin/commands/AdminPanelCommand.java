@@ -86,6 +86,22 @@ public class AdminPanelCommand implements CommandExecutor {
         return gui;
     }
 
+    public static ItemStack createItem() {
+
+        ItemStack item = new ItemStack(Material.SLIME_BALL);
+
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName(ChatColor.BLACK + "Staff Menu" + ChatColor.GRAY + " (Right Color)");
+        meta.addItemFlags(ItemFlag.HIDE_DYE);
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add(ChatColor.GRAY + "Right click to open the staff menu!");
+        meta.setLore(lore);
+
+        item.setItemMeta(meta);
+
+        return item;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {

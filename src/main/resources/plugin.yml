@@ -14,3 +14,6 @@ commands:
   vanish:
     description: Vanish from all players
     usage: /vanish
+  staff:
+    description: Toggles staff mode
+    usage: /staff

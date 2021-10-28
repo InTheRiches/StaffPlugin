@@ -9,18 +9,21 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class StaffPlugin extends JavaPlugin {
 
+    StaffPlugin plugin;
+
     @Override
     public void onEnable() {
 
-        StaffPlugin plugin = this;
+        plugin = this;
 
         CustomConfigFile.setup(getServer());
 
         System.out.println(ChatColor.GREEN + "StaffPlugin A.01 has started.");
 
         getServer().getPluginManager().registerEvents(new PlayerEventsListener(getServer()), this);
-        getServer().getPluginManager().registerEvents(new ClickEvent(), this);
+        getServer().getPluginManager().registerEvents(new ClickEvent(this), this);
 
+        getCommand("staff").setExecutor(new StaffCommand());
         getCommand("admin").setExecutor(new AdminPanelCommand());
         getCommand("smite").setExecutor(new SmiteCommand(getServer()));
         getCommand("vanish").setExecutor(new VanishCommand(this));
@@ -29,5 +32,10 @@ public final class StaffPlugin extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public StaffPlugin getThePlugin() {
+        StaffPlugin plugin = this;
+        return plugin;
     }
 }

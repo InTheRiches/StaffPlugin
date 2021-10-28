@@ -9,6 +9,6 @@ public class Logging {
     }
 
     public static void log(Player p, String message) {
-        p.sendMessage(ChatColor.GREEN + "[StaffPlugin] " + ChatColor.AQUA + message);
+        p.sendMessage(ChatColor.GREEN + "StaffPlugin >> " + ChatColor.AQUA + message);
     }
 }
