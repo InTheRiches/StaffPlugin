@@ -11,4 +11,8 @@ public class Logging {
     public static void log(Player p, String message) {
         p.sendMessage(ChatColor.GREEN + "StaffPlugin >> " + ChatColor.AQUA + message);
     }
+
+    public static void log(Player p, String message, String value) {
+        p.sendMessage(ChatColor.GREEN + "StaffPlugin >> " + ChatColor.AQUA + message + " " + ChatColor.GRAY + value);
+    }
 }

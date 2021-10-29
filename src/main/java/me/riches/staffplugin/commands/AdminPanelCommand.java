@@ -1,5 +1,6 @@
 package me.riches.staffplugin.commands;
 
+import me.riches.staffplugin.items.ItemManager;
 import org.bukkit.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -76,7 +77,7 @@ public class AdminPanelCommand implements CommandExecutor {
 
         ItemStack[] menu_items = {
                 blank, blank, blank, blank, blank, blank, blank, blank, blank,
-                blank, blank, blank, gamemode, ban, blank, blank, blank, blank,
+                blank, blank, blank, gamemode, ban, ItemManager.vanish, blank, blank, blank,
                 blank, blank, blank, suicide, feed, sword, blank, blank, blank,
                 blank, blank, blank, blank, time, blank, blank, blank, blank,
                 blank, blank, blank, blank, blank, blank, blank, blank, blank

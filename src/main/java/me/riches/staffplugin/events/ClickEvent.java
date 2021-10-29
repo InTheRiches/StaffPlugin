@@ -21,11 +21,13 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class ClickEvent implements Listener {
 
     public static ItemStack banGuiButtonClick = null;
+    public static boolean vanish = false;
 
     StaffPlugin plugin;
 
@@ -72,11 +74,13 @@ public class ClickEvent implements Listener {
                 case BEACON:
                     player.openInventory(GamemodeGUI.createGUI(player));
                     break;
+                case INK_SAC:
+                    VanishCommand.toggleVanish(player, true);
+                    break;
             }
 
             e.setCancelled(true);
         }
-
         else if (e.getClickedInventory() == BanGUI.gui) {
             switch(Objects.requireNonNull(e.getCurrentItem()).getType()) {
 
@@ -118,7 +122,6 @@ public class ClickEvent implements Listener {
 
             e.setCancelled(true);
         }
-
         else if (e.getClickedInventory() == TimeGUI.gui) {
 
             switch(Objects.requireNonNull(e.getCurrentItem()).getType()) {
@@ -173,12 +176,35 @@ public class ClickEvent implements Listener {
     @EventHandler
     public void rightClickEvent(PlayerInteractEvent e) {
         Player player = e.getPlayer();
+        try {
+            e.getItem();
+        } catch(NullPointerException ex) {return;}
+
         if (Objects.equals(e.getItem(), AdminPanelCommand.createItem())) {
             player.openInventory(AdminPanelCommand.createGUI(player));
         }
 
-        if (Objects.equals(e.getItem(), ItemManager.vanish)) {
-            new VanishCommand(plugin).toggleVanish(player);
+        if (Objects.equals(e.getItem().getItemMeta().getItemFlags(), ItemManager.vanish.getItemMeta().getItemFlags())) {
+            VanishCommand.toggleVanish(player, true);
+            ItemStack item = e.getItem();
+            ItemMeta meta = item.getItemMeta();
+            if (vanish) {
+                meta.removeEnchant(Enchantment.LUCK);
+                vanish = false;
+            }
+            else {
+                meta.addEnchant(Enchantment.LUCK, 1, false);
+                vanish = true;
+            }
+
+            ItemStack[] check = e.getPlayer().getInventory().getContents();
+            for (int i = 0;i < check.length;i++) {
+                if (check[i] != null) {
+                    if (check[i].getType() == item.getType()) {
+                        check[i].setItemMeta(meta);
+                    }
+                }
+            }
         }
     }
 }
