@@ -68,7 +68,7 @@ public class VanishCommand implements CommandExecutor {
                     public void run() {
                         p.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ChatColor.GREEN + "Vanish Enabled"));
                     }
-                }, 2);
+                }, 2, 1);
             }
         }
     }
