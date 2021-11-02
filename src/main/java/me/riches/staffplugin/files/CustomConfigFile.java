@@ -4,9 +4,13 @@ import org.bukkit.Bukkit;
 import org.bukkit.Server;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class CustomConfigFile {
 
@@ -25,6 +29,10 @@ public class CustomConfigFile {
         }
         customFile = YamlConfiguration.loadConfiguration(file);
         customFile.addDefault("welcome-message", true);
+        String[] aList = {};
+        String[] bList = {};
+        customFile.addDefault("members-in-vanish", Arrays.asList(bList));
+        customFile.addDefault("members-in-staff", Arrays.asList(aList));
         customFile.addDefault("spawn-world", "world");
         customFile.addDefault("spawn-cords.X", server.getWorld(customFile.getString("spawn-world")).getSpawnLocation().getX());
         customFile.addDefault("spawn-cords.Y", server.getWorld(customFile.getString("spawn-world")).getSpawnLocation().getY());

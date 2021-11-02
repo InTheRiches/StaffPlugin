@@ -15,7 +15,7 @@ public class ItemManager {
     public ItemManager() {
         vanish = new ItemStack(Material.INK_SAC);
         ItemMeta vanishMeta = vanish.getItemMeta();
-        vanishMeta.setDisplayName(ChatColor.GOLD + "Vanish");
+        vanishMeta.setDisplayName(ChatColor.GOLD + "Vanish" + ChatColor.GRAY + " (Right Click)");
         vanishMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         ArrayList<String> lore = new ArrayList<>();
         lore.add(ChatColor.GRAY + "Toggles your total vanish");

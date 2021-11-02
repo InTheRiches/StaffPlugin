@@ -1,5 +1,6 @@
 package me.riches.staffplugin.listeners;
 
+import me.riches.staffplugin.commands.StaffCommand;
 import me.riches.staffplugin.files.CustomConfigFile;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -31,6 +32,9 @@ public class PlayerEventsListener implements Listener {
         }
         else {
             e.setJoinMessage(ChatColor.YELLOW + "Welcome to riches' testing server " + player.getName() + "!");
+        }
+        if (StaffCommand.staffPlayers.contains(player)) {
+            StaffCommand.toggleStaff(player);
         }
     }
 

@@ -25,7 +25,7 @@ public class AdminPanelCommand implements CommandExecutor {
         ItemStack feed = new ItemStack(Material.TOTEM_OF_UNDYING);
         ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
         ItemStack blank = new ItemStack(Material.AIR);
-        ItemStack ban = new ItemStack(Material.BARRIER);
+        ItemStack ban = new ItemStack(Material.PAPER);
         ItemStack time = new ItemStack(Material.CLOCK);
         ItemStack gamemode = new ItemStack(Material.BEACON);
 
@@ -33,7 +33,7 @@ public class AdminPanelCommand implements CommandExecutor {
         ItemMeta suicide_meta = suicide.getItemMeta();
         suicide_meta.setDisplayName(ChatColor.RED + "Suicide");
         ArrayList<String> suicide_lore = new ArrayList<>();
-        suicide_lore.add(ChatColor.GOLD + "Kill yourself.");
+        suicide_lore.add(ChatColor.GRAY + "Kill yourself.");
         suicide_meta.setLore(suicide_lore);
         suicide_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         suicide.setItemMeta(suicide_meta);
@@ -41,21 +41,21 @@ public class AdminPanelCommand implements CommandExecutor {
         ItemMeta time_meta = time.getItemMeta();
         time_meta.setDisplayName(ChatColor.YELLOW + "Set Time");
         ArrayList<String> time_lore = new ArrayList<>();
-        time_lore.add(ChatColor.GOLD + "Become a God and Let There Be Light");
+        time_lore.add(ChatColor.GRAY + "Become a God and Let There Be Light");
         time_meta.setLore(time_lore);
         time.setItemMeta(time_meta);
 
         ItemMeta ban_meta = ban.getItemMeta();
-        ban_meta.setDisplayName(ChatColor.RED + "Ban");
+        ban_meta.setDisplayName(ChatColor.RED + "Player Reports");
         ArrayList<String> ban_lore = new ArrayList<>();
-        ban_lore.add(ChatColor.DARK_RED + "Ban a user.");
+        ban_lore.add(ChatColor.GRAY + "Access reports and bans.");
         ban_meta.setLore(ban_lore);
         ban.setItemMeta(ban_meta);
 
         ItemMeta feed_meta = feed.getItemMeta();
         feed_meta.setDisplayName(ChatColor.DARK_GREEN + "Godmode");
         ArrayList<String> feed_lore = new ArrayList<>();
-        feed_lore.add(ChatColor.GOLD + "Become the almighty");
+        feed_lore.add(ChatColor.GRAY + "Become the almighty");
         feed_meta.setLore(feed_lore);
         feed_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         feed.setItemMeta(feed_meta);
@@ -63,7 +63,7 @@ public class AdminPanelCommand implements CommandExecutor {
         ItemMeta sword_meta = sword.getItemMeta();
         sword_meta.setDisplayName(ChatColor.LIGHT_PURPLE + "Sword");
         ArrayList<String> sword_lore = new ArrayList<>();
-        sword_lore.add(ChatColor.GOLD + "Get a sword.");
+        sword_lore.add(ChatColor.GRAY + "Get a sword.");
         sword_meta.setLore(sword_lore);
         sword_meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         sword.setItemMeta(sword_meta);
@@ -71,7 +71,7 @@ public class AdminPanelCommand implements CommandExecutor {
         ItemMeta gamemode_meta = gamemode.getItemMeta();
         gamemode_meta.setDisplayName(ChatColor.BLUE + "Gamemode");
         ArrayList<String> gamemode_lore = new ArrayList<>();
-        gamemode_lore.add(ChatColor.DARK_BLUE + "Creative, Survival and Spectator");
+        gamemode_lore.add(ChatColor.GRAY + "Creative, Survival and Spectator");
         gamemode_meta.setLore(gamemode_lore);
         gamemode.setItemMeta(gamemode_meta);
 
@@ -92,7 +92,7 @@ public class AdminPanelCommand implements CommandExecutor {
         ItemStack item = new ItemStack(Material.SLIME_BALL);
 
         ItemMeta meta = item.getItemMeta();
-        meta.setDisplayName(ChatColor.BLACK + "Staff Menu" + ChatColor.GRAY + " (Right Color)");
+        meta.setDisplayName(ChatColor.GREEN + "Staff Menu" + ChatColor.GRAY + " (Right Click)");
         meta.addItemFlags(ItemFlag.HIDE_DYE);
         ArrayList<String> lore = new ArrayList<>();
         lore.add(ChatColor.GRAY + "Right click to open the staff menu!");
